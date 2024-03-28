@@ -1,0 +1,60 @@
+
+
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class ="container">
+    <div class= "row">
+           <h1>{{title}}</h1> 
+    <div class ="col-sm-7">
+            {% if msg %}
+            <div class="alert alert-danger text-center mt-1" role="alert">
+                {{msg}}
+            </div>
+            {% endif %}
+        <form method="post"  class ="myForm m-5" action ="/payment">
+        {% csrf_token %}
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        {{form.student|as_crispy_field}}
+                    </div>
+                    <div class=" form-group col-md-6">
+                    	{{form.course|as_crispy_field}}
+                        
+                    </div>
+
+                </div>
+
+                   <div class="row">
+                    <div class="form-group col-md-6">
+                        {{form.course_amount|as_crispy_field}}
+                       
+                    </div>
+                </div>
+         
+
+            <!-- {{form|crispy}} -->
+          <button type="submit" class=" col-sm-2 btn btn-primary m-1" value="" />Submit</button>
+        </form>
+    </div>
+
+    	
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

@@ -1,0 +1,127 @@
+
+
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class ="container">
+    {{ form.media }}
+    <div class= "row">
+    	   <h1>{{title}}</h1> 
+    <div class ="col-sm-7">
+            {% if msg %}
+            <div class="alert alert-danger text-center mt-1" role="alert">
+                {{msg}}
+            </div>
+            {% endif %}
+        <form method="post"  class ="myForm m-5" action ="/add-student/">
+        {% csrf_token %}
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        {{form.name|as_crispy_field}}
+                        {{form.gender|as_crispy_field}}
+                    </div>
+                    <div class=" form-group col-md-4">
+                    	{{form.address|as_crispy_field}}
+                        
+                        {{form.course|as_crispy_field}}
+                    </div>
+
+                      <div class=" form-group col-md-4">
+                    	{{form.phone_number|as_crispy_field}}
+
+                    	{{form.date_of_birth|as_crispy_field}}
+
+
+                
+                    </div>
+                </div>
+
+                   <div class="row">
+                    <div class="form-group col-md-6">
+                        {{form.fathername|as_crispy_field}}
+                         {{form.qualification|as_crispy_field}}
+                       
+                    </div>
+                    <div class=" form-group col-md-6">
+                    	 {{form.mothername|as_crispy_field}}
+                       
+                        {{form.shift|as_crispy_field}}
+
+                    </div>
+                </div>
+         
+                <div class ="row">
+                    <div class ="form-group col-md-6">  {{form.refered_by|as_crispy_field}}
+                    </div>
+                    <div class ="col-md-2"> </div>
+                    <div class ="col-md-4">   
+                     <input type="submit" class=" form-group btn btn-primary mt-4 " value="Register" />
+
+                    </div>
+                </div>
+            <!-- {{form|crispy}} -->
+          
+        </form>
+    </div>
+
+  <div class ="col-sm-4">
+     <div class ="row">
+        <div class="col-sm-12">
+
+    	<a type ="button "  href ="{% url 'add-course'%}"class ="btn btn-primary m-4">Add Course</a>
+        <a type ="button "  href ="{% url 'add-shift'%}"class ="btn btn-primary m-4">Add Shift</a>
+    </div>   
+        
+    </div>
+
+
+    	
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+<!--  	<button type ="submit" class ="btn btn-primary m-4" data-toggle ="modal" data-target ="#mymodal">Add Course</button>
+    </div>  -->
+
+<!-- <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Course</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<form method ="post"  class ="form" action ="/add-student/">
+      		{% csrf_token %}
+
+      		<input type ="text" name ="course"/>
+      		
+      	
+      
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+

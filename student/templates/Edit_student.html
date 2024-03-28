@@ -1,0 +1,70 @@
+
+
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class ="container">
+    <div class= "row">
+    	   <h1>{{title}}</h1> 
+    	   <div class ="col-sm-7">
+    <form method="post"  class ="myForm m-5">
+        {% csrf_token %}
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        {{form.name|as_crispy_field}}
+                        {{form.gender|as_crispy_field}}
+                    </div>
+                    <div class=" form-group col-md-4">
+                    	{{form.address|as_crispy_field}}
+                        
+                        {{form.course|as_crispy_field}}
+                    </div>
+
+                      <div class=" form-group col-md-4">
+                    	{{form.phone_number|as_crispy_field}}
+                    	{{form.date_of_birth|as_crispy_field}}
+
+
+                   <!--       -->
+                    </div>
+                </div>
+
+                   <div class="row">
+                    <div class="form-group col-md-6">
+                        {{form.fathername|as_crispy_field}}
+                         {{form.qualification|as_crispy_field}}
+                       
+                    </div>
+                    <div class=" form-group col-md-6">
+                    	 {{form.mothername|as_crispy_field}}
+                       
+                        {{form.shift|as_crispy_field}}
+                    </div>
+                </div>
+         
+
+            <!-- {{form|crispy}} -->
+            <button type="submit " class=" col-sm-2 btn btn-primary m-1" value="" />Register</button>
+
+    </form>
+    </div>
+
+  <div class ="col-sm-2">
+
+    	<a type ="button "  href ="{% url 'add-course'%}"class ="btn btn-primary m-4">Add Course</a>
+    </div>
+
+     <div class ="col-sm-2">
+
+    	<a type ="button "  href ="{% url 'add-shift'%}"class ="btn btn-primary m-4">Add Shift</a>
+    </div>
+
+</div>
+
+</div>
+
+</div
+
+{% endblock %}

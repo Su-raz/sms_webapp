@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class= "container">
+	<div class ="row">
+		<div class ="col-sm-5">
+			<a type ="button" class = "btn btn-primary m-2" href ="/payment">Add Course Payment</a>
+	<a type ="button" class = "btn btn-primary m-2" href ="/payment-tr">Pay Now</a>
+</div>
+
+<div class ="col-sm-3"></div>
+		<div class ="col-sm-4">
+
+    <form method="get" class="form-inline m-2">
+        <div class="input-group">
+            <input type="text" class="form-control" name="search" value="{{ search_query }}" placeholder="Search by name">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </form>
+
+</div>
+
+</div>
+<div class ="row">
+	<table name ="list_document_table" class ="table mt-1 table-striped">
+		<tr>
+		<th>sn</th>
+		<th>Student name</th>
+		<th>Course Name </th>
+		<th>Course Amount</th>
+		<th>Remaining Due</th>
+		<th>Last Paid Date</th>
+		<th>Button</th>
+		</tr>
+{% for instance in queryset %}
+		<tr>	
+		<td>{{forloop.counter}}</td>
+		<td> {{instance.student}}</td>
+		<td> {{instance.course}}</td>
+		<td> {{instance.course_amount}}</td>
+		<td> {{instance.remaining_amount}}</td>
+		<td> {{instance.last_updated}}</td>
+         <td>
+         	<a type ="button" class ="btn btn-primary p-1" href ="">Edit</a>
+         	<a type ="button" class ="btn btn-danger p-1" href ="">Delete</a>
+         </td>
+		</tr>
+
+		{% empty %}
+        <tr>
+        	<td></td>
+        	<td></td>
+            <td  class="text-center"><b>No items found</b></td>
+        </tr>
+	{% endfor %}
+	</table>
+</div>
+
+</div>
+{% endblock %}

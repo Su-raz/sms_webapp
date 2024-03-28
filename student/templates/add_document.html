@@ -1,0 +1,47 @@
+
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block main %}
+<h2 class ="text-center  text-primary m-1 mx-5 " style ="background-color: #E4E4EB; float: center;">Add Document</h2>
+
+<div class ="container m-1">
+    <h6 class ="text-center text-danger " color ="red">{{msg}}</h6>
+    <form method ="post" class ="form m-auto"  action ="/add-document">
+        {% csrf_token %}
+                <div class="row">
+                    <div class="form-group col-md-6 m-auto">
+                        {{form.student|as_crispy_field}}
+                                
+                    </div>
+               
+                </div>
+
+
+
+                <div class="row">
+
+                    <div class=" form-group col-md-6 m-auto">
+                         {{form.name|as_crispy_field}}
+                    </div>
+        
+
+
+         
+                    </div>
+
+
+
+     <div clss="row">
+     <div class ="col-sm-2  m-auto">
+
+     <button type ="submit" class ="btn btn-primary  p-1 mx-2  ">Submit</button>
+      <a type ="submit" class ="btn btn-danger p-1" href ="/list-document">Back</a>
+    </div>
+        
+      </div>
+
+ </form>
+</div>
+
+
+{% endblock %}

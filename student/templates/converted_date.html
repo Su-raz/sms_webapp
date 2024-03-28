@@ -1,0 +1,15 @@
+{% block main %}
+
+
+<form method="POST">
+    {% csrf_token %}
+  <label for="nepali-date">Enter Nepali date (yyyy-mm-dd):</label>
+  <input type="text" id="nepali-date" name="nepali-date">
+  <button type="submit">Convert</button>
+</form>
+
+{% if nepali_date %}
+  <p>English Date: {{ english_date }}</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,29 @@
+
+{% extends 'base.html' %}
+{% block main %}
+<div class ="card m-5 p-2">
+    <form method ="post" class ="form"  action ="/add-course/">
+        {% csrf_token %}
+    <h2 class ="text-center bg-primary">Add Course</h2>
+    <h3 class ="text-center text-danger ">{{msg}}</h3>
+    <div class = "card-row mt-2">
+        <div class=" card col-sm-6 m-auto">
+            <div class = "">
+                <label>Course Name</label>
+            
+            <input type = "text"  class ="form-control m-2" name ="course"/>
+        </div>
+    </div>
+      
+    </div>
+    <div clss="row">
+        <div class ="col-sm-1 m-auto ">
+
+     <button type ="submit" class ="btn btn-primary p-1 m-1 ">Submit</button>
+</div>
+</div>
+ </form>
+</div>
+
+
+{% endblock %}

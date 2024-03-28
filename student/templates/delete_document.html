@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block main %}
+<div class="bg-light p-5 rounded">
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Are you sure want to delete?</h1><br>
+        <input type="submit" class ="btn btn-danger" value="yes" />
+        <a href="/list-document">
+            <div class="btn btn-primary">cancel</div>
+        </a>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+<h1>Welcome to home</h1>
+{% block main %}
+<hr>
+<div class="body  mx-1">
+<div class =" m-5 container ">
+	<div class="row bg-primary">
+		<div class ="col-sm-4">
+			<div class ="card p-3"> 
+				<label class ="text-center" style="font-size: 20px;"> Total Registered Student:</label>
+				<label class ="text-center" style="font-size: 20px;">{{total_student}}</label>
+
+			</div>
+		</div>
+		<div class ="col-sm-4">
+			<div class ="card p-3">
+				
+				<label class ="text-center" style="font-size: 20px;"> Total Document Received</label>
+				<label class ="text-center" style="font-size: 20px;">{{document_submited}}</label>
+
+			</div>
+		</div>
+		<div class ="col-sm-4">
+			<div class ="card p-3"> 
+
+				<label class ="text-center" style="font-size: 20px;"> Total Available Course</label>
+				<label class ="text-center" style="font-size: 20px;">{{course_available}}</label>
+
+
+			</div>
+		</div>
+
+		<!-- <div  class="p-3"></div> -->
+	</div>
+
+<div class ="row mt-5">
+
+	<div class  ="col-sm-2">
+		<a type ="button "  href="/student-report" class ="btn btn-primary p-2">Student Report</a>
+		
+	</div>
+
+	<div class  ="col-sm-2">
+		<a type ="button " href="/payment-report" class ="btn btn-primary p-2">Payment Report</a>
+	</div>
+
+
+
+</div>
+
+</div>
+</div>
+
+{% endblock %}
